@@ -11,7 +11,8 @@ var Suits = ["Clover", "Hearts", "Spade", "Diamonds"];
 var Faces = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
 var deck = new Array();
 let count = 0;
-let array = 0;
+let lose = 0;
+
 function Deck()
 {
   deck = new Array();
@@ -38,22 +39,34 @@ function Deck()
         deck[index] = deck[i];
         deck[i] = temp;
     }
+
 }
 
-console.log(Shuffle(Deck()))
- 
-function Bust (count)
+//console.log(Shuffle(Deck()))
+
+/*
+function start()
 {
-    if (count > 21)
-    {
-        console.log("it's a Bust you lose");
-    }
-    return 0;
-}
+
+    deal_out_cards();
+    let hand = play_one_hand();
+    console.log(hand);
+    determine_outcome(hand);
+} 
+*/
+ 
 
 function Hit ()
 {
-    let randomCard = Math.floor(Math.random() * deck.length);
+    let randomCard = deck[0];
+    let randomCard2 = deck[1];
+    let total = randomCard.Value+ randdomCard2.Value;
+    if(total > 21)
+    {
+        lose++;
+        console.log("You lose. Your number of loses is: "+ lose);
+
+    }
     return deck[randomCard];
 }
 
