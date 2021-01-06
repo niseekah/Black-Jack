@@ -23,7 +23,7 @@ function Deck()
       deck.push(card)
     }
   }
-
+  return deck;
 }
  //console.log(Deck());
 
@@ -36,17 +36,17 @@ function Deck()
         index = Math.floor(Math.random()* deck.length);
         temp = deck[index];
         deck[index] = deck[i];
-        deck[i] = tmp;
+        deck[i] = temp;
     }
 }
 
+console.log(Shuffle(Deck()))
  
 function Bust (count)
 {
     if (count > 21)
     {
         console.log("it's a Bust you lose");
-        break;
     }
     return 0;
 }
