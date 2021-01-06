@@ -10,8 +10,8 @@
 var Suits = ["Clover", "Hearts", "Spade", "Diamonds"];
 var Faces = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
 var deck = new Array();
-let count;
-let array = [];
+let count = 0;
+let array = 0;
 function Deck()
 {
   deck = new Array();
@@ -27,6 +27,19 @@ function Deck()
 }
  //console.log(Deck());
 
+ function Shuffle (deck)
+{
+    let index;
+    let temp;
+    for(let i = 0; i < deck.length; i++)
+    {
+        index = Math.floor(Math.random()* deck.length);
+        temp = deck[index];
+        deck[index] = deck[i];
+        deck[i] = tmp;
+    }
+}
+
  
 function Bust (count)
 {
@@ -41,12 +54,10 @@ function Bust (count)
 function Hit ()
 {
     let randomCard = Math.floor(Math.random() * deck.length);
-    return randomCard;
+    return deck[randomCard];
 }
 
 function Stand(array)
 {
     return array;
 }
-
-    
