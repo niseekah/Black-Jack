@@ -10,8 +10,9 @@
 var Suits = ["Clover", "Hearts", "Spade", "Diamonds"];
 var Faces = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
 var deck = new Array();
-let count = 0;
+//let count = 0;
 let lose = 0;
+let total = 0;
 
 function Deck()
 {
@@ -42,32 +43,61 @@ function Deck()
 
 }
 
-//console.log(Shuffle(Deck()))
 
 /*
-function start()
+function dealHands()
+    {
+        // alternate handing cards to each player
+        // 2 cards each
+        for(var i = 0; i < 2; i++)
+        {
+            for (var x = 0; x < players.length; x++)
+            {
+                var card = deck.pop();
+                players[x].Hand.push(card);
+                renderCard(card, x);
+                updatePoints();
+            }
+        }
+
+        updateDeck();
+    } 
+ */
+
+//console.log(Shuffle(Deck()))
+
+
+function Start()
 {
 
-    deal_out_cards();
-    let hand = play_one_hand();
-    console.log(hand);
-    determine_outcome(hand);
+    Shuffle(Deck());
+    // deal_out_cards();
+    Hit();
+    //let hand = play_one_hand();
+    //console.log(hand);
+    //determine_outcome(hand);
 } 
-*/
+
  
 
 function Hit ()
 {
     let randomCard = deck[0];
     let randomCard2 = deck[1];
-    let total = randomCard.Value+ randdomCard2.Value;
+    total = randomCard2.Value + randomCard.Value;
     if(total > 21)
     {
         lose++;
         console.log("You lose. Your number of loses is: "+ lose);
 
     }
-    return deck[randomCard];
+    else
+    {
+        deck.shift();
+        deck.shift();
+        console.log(total);
+        return randomCard.Value;
+    }
 }
 
 function Stand(array)
