@@ -1,6 +1,6 @@
 // The Game of Black is to have a hand that totals higher than the dealers.
-// In the main function, put 2 thru 10, "Ace", "Jack", "Queen", "King" inside an array called Deck. 
-// The user is given two numbers(cards) at random from the array, the computer is given two numbers but only shows one.
+// Create two function for the computer and the user. The user is given two numbers(cards) at random from the array, 
+// the computer is given two numbers but only shows one.
 // Create a function called Deck that lines up all the cards (Spades Hearts Clover Diamond)
 // create a function called Bust that takes a parameter has an if card amount is greater than 21 "it's a Bust you lose" end Game else continue
 // create a function called Hit that gives you a random card to add in your deck
