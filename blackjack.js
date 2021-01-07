@@ -2,9 +2,11 @@
 // Create two function for the computer and the user. The user is given two numbers(cards) at random from the array, 
 // the computer is given two numbers but only shows one.
 // Create a function called Deck that lines up all the cards (Spades Hearts Clover Diamond)
-// create a function called Bust that takes a parameter has an if card amount is greater than 21 "it's a Bust you lose" end Game else continue
-// create a function called Hit that gives you a random card to add in your deck
-// create a function called Stand that returns your deck
+// Create a function called Shuffle that randomly places the deck array elements in different positions
+// create a function called Start that call all the other function to begin the game.
+// create a function called Hit that gives you two random cards to add in your and the ai decks
+// create a function called Stand that checks to see if the ai has an amount least or equal to 17 and returns their deck.
+// Create a function called Status that keeps track of the number of wins,loses, and ties
 
 
 var Suits = ["Clover", "Hearts", "Spade", "Diamonds"];
@@ -13,6 +15,7 @@ var deck = new Array();
 //let count = 0;
 let lose = 0;
 let win = 0;
+let ties = 0;
 let player_amount = 0;
 let ai_amount = 0;
 
@@ -70,7 +73,7 @@ function Start()
     //determine_outcome(hand);
     
     //if()
-    Reset();
+
 } 
 
  
@@ -79,6 +82,12 @@ function Hit ()
 {
     let randomCard = deck[0];
     let randomCard2 = deck[1];
+    let randomCard3 = deck[2];
+    let randomCard4 = deck[3];
+    player_hand.push(randomCard);
+    player_hand.push(randomCard2);
+    ai_hand.push(randomCard3);
+    ai_hand.push(randomCard4);
     player_amount = randomCard2.Value + randomCard.Value;
     if(player_amount > 21)
     {
@@ -98,10 +107,15 @@ function Hit ()
 
 function Stand(array)
 {
-  if (ai_amount <= 17)
+  if (ai_amount >= 17)
   {
     return array;
   }
+  else
+  {
+    Hit();
+  }
+
 }
 
 function Reset ()
@@ -112,3 +126,23 @@ function Reset ()
     player_amount = 0;
     ai_amount = 0;
 }
+
+function Status()
+{
+    if (player_amount > ai_amount && player_amount <= 21)
+    {
+        win++;
+        console.log("You win. Your number of wins is: "+ win);
+    }
+    else if (player_amount < ai_amount &&  ai_amount <= 21)
+    {
+        lose++;
+        console.log("Dealer win. Your number of loses is: "+ lose);
+    }
+    else
+    {
+        ties++;
+        console.log("It's a tie. The number of ties is: "+ties)
+    }
+}
+
